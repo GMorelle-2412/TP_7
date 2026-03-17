@@ -1,20 +1,62 @@
-// Ex5.cpp : Ce fichier contient la fonction 'main'. L'exécution du programme commence et se termine à cet endroit.
-//
+/*Calculer et afficher les racines de ax2+bx+c=0.
+- Une fonction de prototype void saisie(float *aa,float *bb,float *cc) permet de saisir a,b,c.
 
-#include <iostream>
+- Une fonction de prototype float *calcul(float aa,float bb,float cc) exécute les calculs et renvoie les résultats.
 
-int main()
-{
-    std::cout << "Hello World!\n";
+- a, b, c sont des variables locales à main(); 
+
+- main() se contente de saisir a,b et c puis d'appeler saisie et calcul et d’afficher les solutions.*/
+
+#include<stdio.h>
+#include<stdlib.h>
+
+void saisie(float* aa, float* bb, float* cc) {
+	printf_s("Quelle est la valeur de a : ");
+	scanf_s("%f", aa);
+
+	printf_s("Quelle est la valeur de b : ");
+	scanf_s("%f", bb);
+
+	printf_s("Quelle est la valeur de c : ");
+	scanf_s("%f", cc);
 }
 
-// Exécuter le programme : Ctrl+F5 ou menu Déboguer > Exécuter sans débogage
-// Déboguer le programme : F5 ou menu Déboguer > Démarrer le débogage
+float* calcul(float aa, float bb, float cc) {
+	/* Calcul du discriminant */
+	float delta = bb * bb - 4 * aa * cc;
 
-// Astuces pour bien démarrer : 
-//   1. Utilisez la fenêtre Explorateur de solutions pour ajouter des fichiers et les gérer.
-//   2. Utilisez la fenêtre Team Explorer pour vous connecter au contrôle de code source.
-//   3. Utilisez la fenêtre Sortie pour voir la sortie de la génération et d'autres messages.
-//   4. Utilisez la fenêtre Liste d'erreurs pour voir les erreurs.
-//   5. Accédez à Projet > Ajouter un nouvel élément pour créer des fichiers de code, ou à Projet > Ajouter un élément existant pour ajouter des fichiers de code existants au projet.
-//   6. Pour rouvrir ce projet plus tard, accédez à Fichier > Ouvrir > Projet et sélectionnez le fichier .sln.
+	printf("%f", delta);
+
+	if (delta > 0) {
+		printf("L'equation admet 2 solutions réelles");
+		
+		float solution_1 = -bb - bb / bb / 2 * aa;
+		float solution_2 = -bb + bb / bb / 2 * aa;
+
+		printf("%f", solution_1);
+		printf("%f", solution_2);
+	}
+	else if (delta < 0) {
+		printf("L'equation n'admet aucun solution réelle");
+	}
+	else {
+		printf("L'equation admet une solution réelle");
+		
+		float solution = -bb / 2 * aa;
+		printf("%f", solution);
+
+		
+	}
+
+	return 0;
+}
+
+int main() {
+	/*pointeur*/
+	float a = 0;
+	float b = 0;
+	float c = 0;
+
+	saisie(&a, &b, &c);
+	calcul(a, b, c);
+}

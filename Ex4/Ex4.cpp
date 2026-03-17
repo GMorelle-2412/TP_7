@@ -9,18 +9,15 @@ La mettre en oeuvre dans main() pour afficher tab1 et tab2.*/
 #include<stdio.h>
 
 void affiche(int* tab, int i, int j) {
-	/*for (int a = 0; a < i; a++) {
-		for (int b = 0; b < j; b++) {
+	int Num = i * j;
 
-		}
-	}*/
-	printf("");
+	printf("%d\n", tab[Num]);
 }
 
 int main() {
 	/*Variable*/
-	int ligne [2];
-	int colonnes [2];
+	int ligne = 2;
+	int colonnes = 2;
 
 
 	/*tableau*/
@@ -43,25 +40,25 @@ int main() {
 	/*Saisie*/
 	//Ligne tab1
 	printf("Quelle ligne de tab1 : ");
-	scanf_s("%d", &ligne[0]);
+	scanf_s("%d", &ligne);
 
 	//Colonnes tab1
 	printf("Quelle colonnes de tab1 : ");
-	scanf_s("%d", &colonnes[0]);
+	scanf_s("%d", &colonnes);
 
 	//Ligne tab2
 	printf("Quelle ligne de tab2 : ");
-	scanf_s("%d", &ligne[1]);
+	scanf_s("%d", &ligne);
 
 	//Colonnes tab2
 	printf("Quelle colonnes de tab2 : ");
-	scanf_s("%d", &colonnes[1]);
+	scanf_s("%d", &colonnes);
 
 
 	/*afficher*/
 	//tab1
-	affiche(tab1, ligne[0], colonnes[0]);
+	affiche(tab1, ligne, colonnes);
 
 	//tab2
-	affiche(tab2, ligne[1], colonnes[1]);
+	affiche(tab2, ligne, colonnes);
 }

@@ -16,7 +16,6 @@ int main() {
 
 	printf_s("");
 	
-
 	//affichage
 	for (int i = 0; i < strlen(text)-1; i++) {
 		printf_s("%c ", text[i]);

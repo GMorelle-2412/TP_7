@@ -8,7 +8,7 @@
 - main() se contente de saisir a,b et c puis d'appeler saisie et calcul et d’afficher les solutions.*/
 
 #include<stdio.h>
-#include<stdlib.h>
+#include<math.h>
 
 void saisie(float* aa, float* bb, float* cc) {
 	printf_s("Quelle est la valeur de a : ");
@@ -21,38 +21,38 @@ void saisie(float* aa, float* bb, float* cc) {
 	scanf_s("%f", cc);
 }
 
-float* calcul(float aa, float bb, float cc) {
-	/* Calcul du discriminant */
-	float delta = bb * bb - 4 * aa * cc;
+void calcul(float aa, float bb, float cc) {
+    /* Calcul du discriminant */
+    float delta = bb * bb - 4 * aa * cc;
 
-	printf("%f", delta);
+    if (delta > 0) {
+        float racine = sqrt(delta);
 
-	if (delta > 0) {
-		printf("L'equation admet 2 solutions réelles");
-		
-		float solution_1 = -bb - bb / bb / 2 * aa;
-		float solution_2 = -bb + bb / bb / 2 * aa;
+        float solution1 = (-bb - racine) / (2 * aa);
+        float solution2 = (-bb + racine) / (2 * aa);
 
-		printf("%f", solution_1);
-		printf("%f", solution_2);
-	}
-	else if (delta < 0) {
-		printf("L'equation n'admet aucun solution réelle");
-	}
-	else {
-		printf("L'equation admet une solution réelle");
-		
-		float solution = -bb / 2 * aa;
-		printf("%f", solution);
+        printf("L'equation admet 2 solutions reelles.\n");
 
-		
-	}
+        if (solution1 < solution2) {
+            printf("S = {%f ; %f}\n", solution1, solution2);
+        }
+        else{
+            printf("S = {%f ; %f}\n", solution2, solution1);
+        }
+    }
+    else if (delta < 0) {
+        printf("L'equation n'admet aucune solution reelle.\n");
+    }
+    else {
+        float solution = -bb / (2 * aa);
 
-	return 0;
+        printf("L'equation admet une solution reelle.\n");
+        printf("S = {%f}\n", solution);
+    }
 }
 
 int main() {
-	/*pointeur*/
+	/*Variable*/
 	float a = 0;
 	float b = 0;
 	float c = 0;

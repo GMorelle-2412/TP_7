@@ -11,18 +11,18 @@ adresses des espaces mémoires qui stockent les deux rééls ainsi que le contenu d
 ces deux espaces.
 */
 int main() {
-	double *ard1 = (double*) malloc(sizeof(double));
-	double *ard2 = (double*) malloc(sizeof(double));
+	double *adr1 = (double*) malloc(sizeof(double));
+	double *adr2 = (double*) malloc(sizeof(double));
 
-	*ard1 = -45.78;
-	*ard2 = 678.89;
+	*adr1 = -45.78;
+	*adr2 = 678.89;
 
-	printf("Adresse de ard1 est : %p\n", ard1);
-	printf("La valeur a l'adresse pointer par ard1 est : %f\n", *ard1);
-	printf("\n");
-	printf("Adresse de ard2 est : %p\n", ard2);
-	printf("La valeur a l'adresse pointer par ard2 est : %f\n", *ard2);
+	printf("Adresse de ard1 est : %p\n", adr1);
+	printf("La valeur a l'adresse pointer par ard1 est : %f\n", *adr1);
 
-	free(ard1);
-	free(ard2);
+	printf("\nAdresse de ard2 est : %p\n", adr2);
+	printf("La valeur a l'adresse pointer par ard2 est : %f\n", *adr2);
+
+	free(adr1);
+	free(adr2);
 }

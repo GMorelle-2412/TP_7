@@ -20,31 +20,28 @@ int main() {
 	}
 
 	//trie des valeurs
-	int max = 0;
 	int sauve = 0;
+
 	for (int t = 0; t < 6; t++) {
 		for (int more = 0; more < 6-1; more++) {
 			if (adr_deb[more] > adr_deb[more + 1]) {
 				sauve = adr_deb[more];
 				adr_deb[more] = adr_deb[more + 1];
-				adr_deb[more + 1] = sauve;
-				max++;
-			}
+				adr_deb[more + 1] = sauve;	
+			}	
+			
 		}
+		
 	}
 
-	//Rechercher le maximum
+	// Maximum
 	int* maximum = &adr_deb[5];
 
-	printf_s("\n");
+	printf("\nMaximum : %d\n", *maximum);
+	printf("Adresse : %p\n", &adr_deb[5]);
+	printf("Position : \n");
 
-	//Affiche adresse du maximum
-	printf_s("L'adresse du maximum est : %p\n", &adr_deb[5]);
-
-	printf_s("\n");
-
-	//Affiche position maximum
-	printf_s("Et la position du maximum est : %d\n", maximum);
 
 	free(adr_deb);
+	return 0;
 }
